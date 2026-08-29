@@ -27,3 +27,25 @@ pkg/
 release/wi-kubernetes-manifests.yaml
 vendor/
 gha-creds-*.json
+
+# Local Ansible inventory
+ansible/inventory/hosts.ini
+
+# SSH/private keys
+*.pem
+*.key
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Local secrets
+.env
+*.secret
+*.secrets
+secrets/
+
+# Local VM/cloud-init data
+*.iso
+*.qcow2
+*.img
