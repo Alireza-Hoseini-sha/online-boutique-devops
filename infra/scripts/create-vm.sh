@@ -19,7 +19,7 @@ IMG_DIR="/var/lib/libvirt/images/$NAME"
 DISK_IMAGE="$IMG_DIR/disk.qcow2"
 SEED_ISO="$IMG_DIR/seed.iso"
 
-SSH_KEY="$HOME/.ssh/id_ed25519.pub"
+SSH_KEY="$HOME/.ssh/ansible_ed25519.pub"
 
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT

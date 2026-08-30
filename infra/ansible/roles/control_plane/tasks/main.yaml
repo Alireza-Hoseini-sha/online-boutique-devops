@@ -43,12 +43,13 @@
 - name: Apply Tigera operator
   become_user: "{{ cluster_user }}"
   ansible.builtin.command: >
-    kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/{{ calico_version }}/manifests/tigera-operator.yaml
+    kubectl apply --server-side --force-conflicts
+    -f https://raw.githubusercontent.com/projectcalico/calico/{{ calico_version }}/manifests/tigera-operator.yaml
   environment:
     KUBECONFIG: "/home/{{ cluster_user }}/.kube/config"
   register: tigera_apply
   changed_when: "'created' in tigera_apply.stdout or 'configured' in tigera_apply.stdout"
-
+  
 - name: Wait for Tigera Installation CRD
   become_user: "{{ cluster_user }}"
   ansible.builtin.command: kubectl get crd installations.operator.tigera.io
