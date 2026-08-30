@@ -28,8 +28,6 @@ release/wi-kubernetes-manifests.yaml
 vendor/
 gha-creds-*.json
 
-# Local Ansible inventory
-ansible/inventory/hosts.ini
 
 # SSH/private keys
 *.pem
