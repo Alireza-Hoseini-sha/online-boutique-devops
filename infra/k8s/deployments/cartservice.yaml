@@ -14,7 +14,8 @@ spec:
       labels:
         app: cartservice
     spec:
-      serviceAccountName: cartservice
+    #  serviceAccountName: cartservice
+      automountServiceAccountToken: false
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000

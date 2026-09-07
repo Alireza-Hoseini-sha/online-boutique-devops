@@ -15,7 +15,8 @@ spec:
       labels:
         app: currencyservice
     spec:
-      serviceAccountName: currencyservice
+  #    serviceAccountName: currencyservice
+      automountServiceAccountToken: false
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
@@ -35,11 +36,9 @@ spec:
         ports:
         - name: grpc
           containerPort: 7000
-        env:
-        - name: PORT
-          value: "7000"
-        - name: DISABLE_PROFILER
-          value: "1"
+        envFrom:
+            - configMapRef:
+                name: currencyservice
         readinessProbe:
           grpc:
             port: 7000

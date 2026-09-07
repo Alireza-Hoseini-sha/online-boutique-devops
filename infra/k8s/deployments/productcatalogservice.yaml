@@ -15,7 +15,8 @@ spec:
       labels:
         app: productcatalogservice
     spec:
-      serviceAccountName: productcatalogservice
+  #    serviceAccountName: productcatalogservice
+      automountServiceAccountToken: false
       terminationGracePeriodSeconds: 5
       securityContext:
         fsGroup: 1000
@@ -34,11 +35,9 @@ spec:
         image: us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/productcatalogservice:v0.10.6
         ports:
         - containerPort: 3550
-        env:
-        - name: PORT
-          value: "3550"
-        - name: DISABLE_PROFILER
-          value: "1"
+        envFrom:
+          - configMapRef:
+              name: productcatalogservice
         readinessProbe:
           grpc:
             port: 3550
