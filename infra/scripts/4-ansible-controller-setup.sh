@@ -49,4 +49,5 @@ echo "Ansible Controller setup completed."
 
 ansible --version
 
+ansible-galaxy collection install community.docker
 EOF

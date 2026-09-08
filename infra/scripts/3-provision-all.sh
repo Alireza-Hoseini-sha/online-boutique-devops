@@ -3,3 +3,4 @@
 ./create-vm.sh k8s-master            4096 2 20 192.168.122.11
 ./create-vm.sh k8s-worker-01         6144 2 20 192.168.122.12
 ./create-vm.sh k8s-worker-02         6144 2 20 192.168.122.13
+./create-vm.sh vm-gitlab             8192 4 40 192.168.122.14
