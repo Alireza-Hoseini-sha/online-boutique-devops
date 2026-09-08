@@ -41,9 +41,12 @@ id_ed25519.*
 .env
 *.secret
 *.secrets
-secrets/
+
 
 # Local VM/cloud-init data
 *.iso
 *.qcow2
 *.img
+
+infra/gitlab-runner/config
+infra/gitlab-runner/certs
